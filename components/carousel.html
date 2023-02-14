@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== PRISM CSS ===============-->
+    <link rel="stylesheet" href="../assets/prism/prism.css" />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+
+    <!--=============== TAB CSS ===============-->
+    <link rel="stylesheet" href="../assets/css/tab.css" />
+
+    <!--=============== CAROUSEL CSS ===============-->
+    <link rel="stylesheet" href="../assets/css/carousel.css" />
+
+    <!--=============== PRISM JS ===============-->
+    <script src="../assets/prism/prism.js" defer></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="../assets/js/main.js" defer></script>
+
+    <!--=============== TAB JS ===============-->
+    <script src="../assets/js/tab.js" defer></script>
+
+    <!--=============== CAROUSEL JS ===============-->
+    <script src="../assets/js/carousel.js" defer></script>
+
+    <!--=============== METADATA ===============-->
+    <title>Carousel-Templates</title>
+    <meta name="author" content="Joshua Schärer" />
+    <meta name="copyright" content="Joshua Schärer" />
+    <meta name="color-scheme" content="light" />
+  </head>
+  <body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+      <nav class="nav container" id="primary-nav" aria-label="primary">
+        <a href="../index.html" class="nav__logo link link--button">
+          by Joshua Schärer
+        </a>
+      </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main" id="main">
+      <div class="main__container container">
+        <!--=============== SIDEBAR ===============-->
+        <aside class="sidebar" id="sidebar">
+          <nav class="sidenav" id="secondary-nav" aria-label="secondary">
+            <h2 class="sidenav__title">Carousel</h2>
+
+            <div class="sidenav__menu" id="sidenav-menu">
+              <ul class="sidenav__list">
+                <li class="sidenav__item">
+                  <a href="#basic" class="sidenav__link link link--button">
+                    Basic
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </aside>
+
+        <!--=============== CONTENT ===============-->
+        <div class="content" id="content">
+          <!--=============== BREADCRUMBS ===============-->
+          <nav class="breadcrumbs" id="breadcrumbs" aria-label="breadcrumbs">
+            <div class="breadcrumbs__menu">
+              <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                  <a href="../index.html" class="breadcrumbs__link link link">
+                    Home
+                  </a>
+                </li>
+                <li class="breadcrumbs__item">
+                  <a href="#" class="breadcrumbs__link link link">Components</a>
+                </li>
+                <li class="breadcrumbs__item">
+                  <a href="#" class="breadcrumbs__link link link--active">
+                    Carousel
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <!--=============== HERO ===============-->
+          <div class="hero__container section">
+            <h1 class="hero__title">Carousel-Templates</h1>
+            <p class="hero__description">
+              A carousel component displays a rotating selection of items
+              allowing users to swipe or click through the content. This page
+              offers a diverse collection of carousel templates, designed to
+              meet the needs of various web design projects. Browse through the
+              options and find the perfect fit for your website.
+            </p>
+          </div>
+
+          <!--=============== TEMPLATES ===============-->
+          <section class="carousel section" id="basic">
+            <div class="carousel__container">
+              <h2 class="section__title">Basic carousel</h2>
+              <p class="section__description">
+                A template for a very simple carousel.
+              </p>
+
+              <h3 class="section__subtitle">Code</h3>
+              <div class="section__container">
+                <div class="tab tab--basic">
+                  <div class="tab__list" role="tablist">
+                    <h3 class="tab__header">
+                      <button
+                        class="tab__title"
+                        id="tab-basic-header-html"
+                        role="tab"
+                        aria-controls="tab-basic-panel-html"
+                        aria-selected="true"
+                        tabindex="0">
+                        HTML
+                      </button>
+                    </h3>
+
+                    <h3 class="tab__header">
+                      <button
+                        class="tab__title"
+                        id="tab-basic-header-css"
+                        role="tab"
+                        aria-controls="tab-basic-panel-css"
+                        aria-selected="false"
+                        tabindex="-1">
+                        CSS
+                      </button>
+                    </h3>
+
+                    <h3 class="tab__header">
+                      <button
+                        class="tab__title"
+                        id="tab-basic-header-js"
+                        role="tab"
+                        aria-controls="tab-basic-panel-js"
+                        aria-selected="false"
+                        tabindex="-1">
+                        JS
+                      </button>
+                    </h3>
+                  </div>
+
+                  <section
+                    class="tab__panel container--box"
+                    id="tab-basic-panel-html"
+                    role="tabpanel"
+                    aria-labelledby="tab-basic-header-html"
+                    tabindex="-1">
+                    <pre>
+                        <code class="language-html">
+                          &lt;!--=============== BASIC CAROUSEL ===============--&gt;
+                          &lt;div class=&quot;carousel carousel--basic&quot; id=&quot;carousel-basic&quot;&gt;
+                            &lt;div class=&quot;carousel__controls&quot; role=&quot;group&quot;&gt;
+                              &lt;button class=&quot;carousel__prev&quot; id=&quot;carousel-prev&quot; tabindex=&quot;-1&quot;&gt;
+                                &amp;lt;
+                              &lt;/button&gt;
+                              &lt;button class=&quot;carousel__next&quot; id=&quot;carousel-next&quot; tabindex=&quot;-1&quot;&gt;
+                                &amp;gt;
+                              &lt;/button&gt;
+                            &lt;/div&gt;
+                          
+                            &lt;ul class=&quot;carousel__list&quot; tabindex=&quot;0&quot;&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;true&quot;&gt;&lt;!-- CONTENT --&gt;&lt;/li&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;false&quot;&gt;&lt;!-- CONTENT --&gt;&lt;/li&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;false&quot;&gt;&lt;!-- CONTENT --&gt;&lt;/li&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;false&quot;&gt;&lt;!-- CONTENT --&gt;&lt;/li&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;false&quot;&gt;&lt;!-- CONTENT --&gt;&lt;/li&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;false&quot;&gt;&lt;!-- CONTENT --&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                          &lt;/div&gt;
+                        </code>
+                    </pre>
+                  </section>
+
+                  <section
+                    class="tab__panel container--box"
+                    id="tab-basic-panel-css"
+                    role="tabpanel"
+                    aria-labelledby="tab-basic-header-css"
+                    tabindex="-1"
+                    hidden>
+                    <pre>
+                        <code class="language-css">
+                          /*=============== VARIABLES CSS ===============*/
+                          :root {
+                            --hover-overlay-color: rgba(0, 0, 0, 0.05);
+                            --active-overlay-color: #e7f3ff;
+                            --first-color: hsl(214, 89%, 52%);
+                            --first-color-alt: hsl(214, 89%, 52%, 0.4);
+                          }
+                          
+                          /*=============== CAROUSEL ===============*/
+                          .carousel {
+                            position: relative;
+                          }
+                          
+                          .carousel__controls {
+                            display: flex;
+                            justify-content: space-between;
+                            left: 0;
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 100%;
+                            z-index: 10;
+                          }
+                          
+                          :is(.carousel__prev, .carousel__next) {
+                            background-color: transparent;
+                            border-radius: 0.25rem;
+                            padding: 0.5rem;
+                          }
+                          
+                          :is(.carousel__prev, .carousel__next):is(:hover, :focus) {
+                            background-color: var(--hover-overlay-color);
+                          }
+                          
+                          .carousel__list {
+                            --gap: 1rem;
+                            display: flex;
+                            gap: var(--gap);
+                            margin-inline: 2.5rem;
+                            overflow-x: scroll;
+                            scroll-snap-type: x mandatory;
+                          }
+                          
+                          .carousel__item {
+                            align-items: center;
+                            aspect-ratio: 4/3;
+                            background-color: var(--active-overlay-color);
+                            border-radius: 0.25rem;
+                            color: var(--first-color);
+                            display: flex;
+                            flex: 0 0 calc((100% - 2 * var(--gap)) / 3);
+                            justify-content: center;
+                            scroll-snap-align: start;
+                          }
+                          
+                          .carousel__item:is(:hover, :focus),
+                          .carousel__item[aria-current="true"] {
+                            background-color: var(--first-color-alt);
+                          }                          
+                        </code>
+                    </pre>
+                  </section>
+
+                  <section
+                    class="tab__panel container--box"
+                    id="tab-basic-panel-js"
+                    role="tabpanel"
+                    aria-labelledby="tab-basic-header-js"
+                    tabindex="-1"
+                    hidden>
+                    <pre>
+                        <code class="language-js">
+                          /*=============== CAROUSEL ===============*/
+                          const carousels = document.querySelectorAll(".carousel");
+                          
+                          // Setup each carousel
+                          carousels.forEach((carousel) => {
+                            const carItems = carousel.querySelectorAll(".carousel__item");
+                            const carPrev = carousel.querySelector("#carousel-prev");
+                            const carNext = carousel.querySelector("#carousel-next");
+                            const nrOfItems = carItems.length;
+                          
+                            // Add a keydown event handler to the carousel
+                            carousel.addEventListener("keydown", (e) => {
+                              if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+                                // Move right
+                                if (e.key === "ArrowRight") {
+                                  e.preventDefault();
+                                  changeSlide(e, 1, nrOfItems);
+                                  // Move left
+                                } else if (e.key === "ArrowLeft") {
+                                  e.preventDefault();
+                                  changeSlide(e, -1, nrOfItems);
+                                }
+                              }
+                            });
+                          
+                            // Add a click event handler to the previous button
+                            carPrev.addEventListener("click", (e) => changeSlide(e, -1, nrOfItems));
+                          
+                            // Add a click event handler to the next button
+                            carNext.addEventListener("click", (e) => changeSlide(e, 1, nrOfItems));
+                          });
+                          
+                          function changeSlide(e, direction, nrOfItems) {
+                            const target = e.target;
+                            const parent =
+                              e instanceof KeyboardEvent ? target : target.parentNode.nextElementSibling;
+                          
+                            // Get the current focus of the carousel
+                            let focus = parent.scrollLeft;
+                          
+                            // Get the width of a carousel item
+                            const itemWidth = (parent.clientWidth - 32) / 3 + 16;
+                          
+                            // Check the bounds of the carousel & calculate the offset
+                            let offset = 0;
+                            if (direction === -1 && focus / itemWidth === 0)
+                              offset = itemWidth * (nrOfItems - 3);
+                            else if (direction === 1 && focus / itemWidth === nrOfItems - 3) offset = 0;
+                            else offset = focus + direction * itemWidth;
+                          
+                            // Toggle the current selected slides
+                            parent.querySelectorAll("[aria-current]").forEach((slide, index) => {
+                              if (index === offset / itemWidth) slide.setAttribute("aria-current", true);
+                              else slide.setAttribute("aria-current", false);
+                            });
+                          
+                            // Scroll the carousel
+                            parent.scrollTo({
+                              left: offset,
+                              behavior: "smooth",
+                            });
+                          }                          
+                        </code>
+                    </pre>
+                  </section>
+                </div>
+              </div>
+
+              <h3 class="section__subtitle">Output</h3>
+              <div class="section__container container--box">
+                <!--=============== BASIC CAROUSEL ===============-->
+                <div class="carousel carousel--basic" id="carousel-basic">
+                  <div class="carousel__controls" role="group">
+                    <button
+                      class="carousel__prev"
+                      id="carousel-prev"
+                      tabindex="-1">
+                      &lt;
+                    </button>
+                    <button
+                      class="carousel__next"
+                      id="carousel-next"
+                      tabindex="-1">
+                      &gt;
+                    </button>
+                  </div>
+
+                  <ul class="carousel__list" tabindex="0">
+                    <li class="carousel__item" aria-current="true">1</li>
+                    <li class="carousel__item" aria-current="false">2</li>
+                    <li class="carousel__item" aria-current="false">3</li>
+                    <li class="carousel__item" aria-current="false">4</li>
+                    <li class="carousel__item" aria-current="false">5</li>
+                    <li class="carousel__item" aria-current="false">6</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer" id="footer">
+      <div class="footer__container container container--grid">
+        <div class="footer__menu" id="footer-menu">
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a href="#" class="footer__link link link--button">Imprint</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link link link--button">Privacy</a>
+            </li>
+          </ul>
+        </div>
+
+        <span class="footer__copy">
+          &#169; 2023 Joshua Schärer. All rigths reserved.
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

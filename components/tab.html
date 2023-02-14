@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== PRISM CSS ===============-->
+    <link rel="stylesheet" href="../assets/prism/prism.css" />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+
+    <!--=============== TAB CSS ===============-->
+    <link rel="stylesheet" href="../assets/css/tab.css" />
+
+    <!--=============== PRISM JS ===============-->
+    <script src="../assets/prism/prism.js" defer></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="../assets/js/main.js" defer></script>
+
+    <!--=============== TAB JS ===============-->
+    <script src="../assets/js/tab.js" defer></script>
+
+    <!--=============== METADATA ===============-->
+    <title>Tab-Templates</title>
+    <meta name="author" content="Joshua Schärer" />
+    <meta name="copyright" content="Joshua Schärer" />
+    <meta name="color-scheme" content="light" />
+  </head>
+  <body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+      <nav class="nav container" id="primary-nav" aria-label="primary">
+        <a href="../index.html" class="nav__logo link link--button">
+          by Joshua Schärer
+        </a>
+      </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main" id="main">
+      <div class="main__container container">
+        <!--=============== SIDEBAR ===============-->
+        <aside class="sidebar" id="sidebar">
+          <nav class="sidenav" id="secondary-nav" aria-label="secondary">
+            <h2 class="sidenav__title">Tab</h2>
+
+            <div class="sidenav__menu" id="sidenav-menu">
+              <ul class="sidenav__list">
+                <li class="sidenav__item">
+                  <a href="#basic" class="sidenav__link link link--button">
+                    Basic
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </aside>
+
+        <!--=============== CONTENT ===============-->
+        <div class="content" id="content">
+          <!--=============== BREADCRUMBS ===============-->
+          <nav class="breadcrumbs" id="breadcrumbs" aria-label="breadcrumbs">
+            <div class="breadcrumbs__menu">
+              <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                  <a href="../index.html" class="breadcrumbs__link link link">
+                    Home
+                  </a>
+                </li>
+                <li class="breadcrumbs__item">
+                  <a href="#" class="breadcrumbs__link link link">Components</a>
+                </li>
+                <li class="breadcrumbs__item">
+                  <a href="#" class="breadcrumbs__link link link--active">
+                    Tab
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <!--=============== HERO ===============-->
+          <div class="hero__container section">
+            <h1 class="hero__title">Tab-Templates</h1>
+            <p class="hero__description">
+              A tab component allows simple navigation through content within a
+              limited space. This page offers a diverse collection of tab
+              templates, designed to meet the needs of various web design
+              projects. Browse through the options and find the perfect fit for
+              your website.
+            </p>
+          </div>
+
+          <!--=============== TEMPLATES ===============-->
+          <section class="tab section" id="basic">
+            <div class="tab__container">
+              <h2 class="section__title">Basic tab</h2>
+              <p class="section__description">
+                A template for a very simple tab.
+              </p>
+
+              <h3 class="section__subtitle">Code</h3>
+              <div class="section__container">
+                <div class="tab tab--basic">
+                  <div class="tab__list" role="tablist">
+                    <h3 class="tab__header">
+                      <button
+                        class="tab__title"
+                        id="tab-basic-header-html"
+                        role="tab"
+                        aria-controls="tab-basic-panel-html"
+                        aria-selected="true"
+                        tabindex="0">
+                        HTML
+                      </button>
+                    </h3>
+
+                    <h3 class="tab__header">
+                      <button
+                        class="tab__title"
+                        id="tab-basic-header-css"
+                        role="tab"
+                        aria-controls="tab-basic-panel-css"
+                        aria-selected="false"
+                        tabindex="-1">
+                        CSS
+                      </button>
+                    </h3>
+
+                    <h3 class="tab__header">
+                      <button
+                        class="tab__title"
+                        id="tab-basic-header-js"
+                        role="tab"
+                        aria-controls="tab-basic-panel-js"
+                        aria-selected="false"
+                        tabindex="-1">
+                        JS
+                      </button>
+                    </h3>
+                  </div>
+
+                  <section
+                    class="tab__panel container--box"
+                    id="tab-basic-panel-html"
+                    role="tabpanel"
+                    aria-labelledby="tab-basic-header-html"
+                    tabindex="-1">
+                    <pre data-file="index.html">
+                      <code class="language-html">
+                        &lt;!--=============== BASIC TAB ===============--&gt;
+                        &lt;div class=&quot;tab tab--basic&quot; id=&quot;tab-basic&quot;&gt;
+                          &lt;div class=&quot;tab__list&quot; role=&quot;tablist&quot;&gt;
+                            &lt;h3 class=&quot;tab__header&quot;&gt;
+                              &lt;button
+                                class=&quot;tab__title&quot;
+                                id=&quot;tab-basic-header-1&quot;
+                                role=&quot;tab&quot;
+                                aria-controls=&quot;tab-basic-panel-1&quot;
+                                aria-selected=&quot;true&quot;
+                                tabindex=&quot;0&quot;&gt;
+                                &lt;!-- TITLE --&gt;
+                              &lt;/button&gt;
+                            &lt;/h3&gt;
+                        
+                            &lt;h3 class=&quot;tab__header&quot;&gt;
+                              &lt;button
+                                class=&quot;tab__title&quot;
+                                id=&quot;tab-basic-header-2&quot;
+                                role=&quot;tab&quot;
+                                aria-controls=&quot;tab-basic-panel-2&quot;
+                                aria-selected=&quot;false&quot;
+                                tabindex=&quot;-1&quot;&gt;
+                                &lt;!-- TITLE --&gt;
+                              &lt;/button&gt;
+                            &lt;/h3&gt;
+                          &lt;/div&gt;
+                        
+                          &lt;section
+                            class=&quot;tab__panel&quot;
+                            id=&quot;tab-basic-panel-1&quot;
+                            role=&quot;tabpanel&quot;
+                            aria-labelledby=&quot;tab-basic-header-1&quot;
+                            tabindex=&quot;-1&quot;&gt;
+                            &lt;!-- CONTENT --&gt;
+                          &lt;/section&gt;
+                        
+                          &lt;section
+                            class=&quot;tab__panel&quot;
+                            id=&quot;tab-basic-panel-2&quot;
+                            role=&quot;tabpanel&quot;
+                            aria-labelledby=&quot;tab-basic-header-2&quot;
+                            tabindex=&quot;-1&quot;
+                            hidden&gt;
+                            &lt;!-- CONTENT --&gt;
+                          &lt;/section&gt;
+                        &lt;/div&gt;
+                      </code>
+                    </pre>
+                  </section>
+
+                  <section
+                    class="tab__panel container--box"
+                    id="tab-basic-panel-css"
+                    role="tabpanel"
+                    aria-labelledby="tab-basic-header-css"
+                    tabindex="-1"
+                    hidden>
+                    <pre>
+                      <code class="language-css">
+                        /*=============== VARIABLES CSS ===============*/
+                        :root {
+                          --hover-overlay-color: rgba(0, 0, 0, 0.05);
+                          --active-overlay-color: hsl(131, 100%, 95%);
+                          --first-color: hsl(135, 48%, 51%);
+                          --first-color-alt: hsl(135, 89%, 52%, 0.4);
+                        }
+
+                        /*=============== TAB ===============*/
+                        [role="tablist"] {
+                          display: flex;
+                          flex-direction: row;
+                          flex-wrap: wrap;
+                        }
+
+                        [role="tab"] {
+                          padding: 0.5rem;
+                          background-color: transparent;
+                        }
+
+                        [role="tab"]:is(:hover, :focus) {
+                          background-color: var(--hover-overlay-color);
+                        }
+
+                        [role="tab"][aria-selected="true"] {
+                          background-color: var(--active-overlay-color);
+                          color: var(--first-color);
+                        }
+
+                        [role="tab"][aria-selected="true"]:is(:hover, :focus) {
+                          background-color: var(--first-color-alt);
+                        }
+
+                        [role="tabpanel"] {
+                          margin-top: 0.5rem;
+                        }
+                      </code>
+                    </pre>
+                  </section>
+
+                  <section
+                    class="tab__panel container--box"
+                    id="tab-basic-panel-js"
+                    role="tabpanel"
+                    aria-labelledby="tab-basic-header-js"
+                    tabindex="-1"
+                    hidden>
+                    <pre>
+                      <code class="language-js">
+                        /*=============== TAB ===============*/
+                        const tabLists = document.querySelectorAll('[role=&quot;tablist&quot;]');
+
+                        // Setup each tablist
+                        tabLists.forEach((tabList) =&gt; {
+                          const tabs = tabList.querySelectorAll('[role=&quot;tab&quot;]');
+                          let tabFocus = 0;
+
+                          // Add a keydown event handler to the tablist
+                          tabList.addEventListener(&quot;keydown&quot;, (e) =&gt; {
+                            if (e.key === &quot;ArrowRight&quot; || e.key === &quot;ArrowLeft&quot;) {
+                              tabs[tabFocus].setAttribute(&quot;tabindex&quot;, -1);
+                              // Move right
+                              if (e.key === &quot;ArrowRight&quot;) {
+                                tabFocus++;
+                                // If we're at the end, go to the start
+                                if (tabFocus &gt;= tabs.length) {
+                                  tabFocus = 0;
+                                }
+                                // Move left
+                              } else if (e.key === &quot;ArrowLeft&quot;) {
+                                tabFocus--;
+                                // If we're at the start, move to the end
+                                if (tabFocus &lt; 0) {
+                                  tabFocus = tabs.length - 1;
+                                }
+                              }
+
+                              tabs[tabFocus].setAttribute(&quot;tabindex&quot;, 0);
+                              tabs[tabFocus].focus();
+                            }
+                          });
+
+                          // Add a click event handler to each tab
+                          tabs.forEach((tab) =&gt; {
+                            tab.addEventListener(&quot;click&quot;, changeTabs);
+                          });
+                        });
+
+                        function changeTabs(e) {
+                          const target = e.target;
+                          const parent = target.parentNode.parentNode;
+                          const grandparent = parent.parentNode;
+
+                          // Remove all current selected tabs
+                          parent
+                            .querySelectorAll('[aria-selected=&quot;true&quot;]')
+                            .forEach((tab) =&gt; tab.setAttribute(&quot;aria-selected&quot;, false));
+
+                          // Set this tab as selected
+                          target.setAttribute(&quot;aria-selected&quot;, true);
+
+                          // Hide all tab panels
+                          grandparent
+                            .querySelectorAll('[role=&quot;tabpanel&quot;]')
+                            .forEach((panel) =&gt; panel.setAttribute(&quot;hidden&quot;, true));
+
+                          // Show the selected panel
+                          grandparent
+                            .querySelector(`#${target.getAttribute(&quot;aria-controls&quot;)}`)
+                            .removeAttribute(&quot;hidden&quot;);
+                        }
+                      </code>
+                    </pre>
+                  </section>
+                </div>
+              </div>
+
+              <h3 class="section__subtitle">Output</h3>
+              <div class="section__container container--box">
+                <!--=============== BASIC TAB ===============-->
+                <div class="tab tab--basic" id="tab-basic">
+                  <div class="tab__list" role="tablist">
+                    <h3 class="tab__header">
+                      <button
+                        class="tab__title"
+                        id="tab-basic-header-1"
+                        role="tab"
+                        aria-controls="tab-basic-panel-1"
+                        aria-selected="true"
+                        tabindex="0">
+                        Tab 1
+                      </button>
+                    </h3>
+
+                    <h3 class="tab__header">
+                      <button
+                        class="tab__title"
+                        id="tab-basic-header-2"
+                        role="tab"
+                        aria-controls="tab-basic-panel-2"
+                        aria-selected="false"
+                        tabindex="-1">
+                        Tab 2
+                      </button>
+                    </h3>
+                  </div>
+
+                  <section
+                    class="tab__panel"
+                    id="tab-basic-panel-1"
+                    role="tabpanel"
+                    aria-labelledby="tab-basic-header-1"
+                    tabindex="-1">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Dolor, alias deleniti mollitia nobis magnam nemo! Animi
+                    asperiores magnam ea. Tempore porro, accusantium sit id sunt
+                    dicta nulla! Rem, architecto unde?
+                  </section>
+
+                  <section
+                    class="tab__panel"
+                    id="tab-basic-panel-2"
+                    role="tabpanel"
+                    aria-labelledby="tab-basic-header-2"
+                    tabindex="-1"
+                    hidden>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Corrupti suscipit, tenetur mollitia doloremque excepturi
+                    atque impedit rerum ut consectetur, molestias vel asperiores
+                    magni. Illo, corrupti sed ullam ab et necessitatibus?
+                  </section>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer" id="footer">
+      <div class="footer__container container container--grid">
+        <div class="footer__menu" id="footer-menu">
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a href="#" class="footer__link link link--button">Imprint</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link link link--button">Privacy</a>
+            </li>
+          </ul>
+        </div>
+
+        <span class="footer__copy">
+          &#169; 2023 Joshua Schärer. All rigths reserved.
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --hover-overlay-color: rgba(0, 0, 0, 0.05);
+  --active-overlay-color: hsl(131, 100%, 95%);
+  --first-color: hsl(135, 48%, 51%);
+  --first-color-alt: hsl(135, 89%, 52%, 0.4);
+}
+
+/*=============== TAB ===============*/
+[role="tablist"] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+[role="tab"] {
+  padding: 0.5rem;
+  background-color: transparent;
+}
+
+[role="tab"]:is(:hover, :focus) {
+  background-color: var(--hover-overlay-color);
+}
+
+[role="tab"][aria-selected="true"] {
+  background-color: var(--active-overlay-color);
+  color: var(--first-color);
+}
+
+[role="tab"][aria-selected="true"]:is(:hover, :focus) {
+  background-color: var(--first-color-alt);
+}
+
+[role="tabpanel"] {
+  margin-top: 0.5rem;
+}

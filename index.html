@@ -17,5 +17,140 @@
     <meta name="copyright" content="Joshua Schärer" />
     <meta name="color-scheme" content="light" />
   </head>
-  <body></body>
+  <body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+      <nav class="nav container" id="primary-nav" aria-label="primary">
+        <a href="#" class="nav__logo link link--button">by Joshua Schärer</a>
+      </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main" id="main">
+      <div class="main__container container">
+        <!--=============== SIDEBAR ===============-->
+        <aside class="sidebar" id="sidebar">
+          <nav class="sidenav" id="secondary-nav" aria-label="secondary">
+            <h2 class="sidenav__title">Components</h2>
+
+            <div class="sidenav__menu" id="sidenav-menu">
+              <ul class="sidenav__list">
+                <li class="sidenav__item">
+                  <a href="#accordion" class="sidenav__link link link--button">
+                    Accordion
+                  </a>
+                </li>
+                <li class="sidenav__item">
+                  <a href="#carousel" class="sidenav__link link link--button">
+                    Carousel
+                  </a>
+                </li>
+                <li class="sidenav__item">
+                  <a href="#tab" class="sidenav__link link link--button">Tab</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </aside>
+
+        <!--=============== CONTENT ===============-->
+        <div class="content" id="content">
+          <!--=============== ACCORDION ===============-->
+          <section class="accordion section" id="accordion">
+            <div class="accordion__container">
+              <h2 class="section__title">
+                <a
+                  href="./components/accordion.html"
+                  class="accordion__link link link--icon">
+                  Accordion
+                </a>
+              </h2>
+
+              <div class="accordion__menu">
+                <ul class="accordion__list list--cards">
+                  <li class="accordion__item item--card">
+                    <a
+                      href="./components/accordion.html#basic"
+                      class="accordion__link link link--button link--button--active">
+                      Basic accordion
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!--=============== CAROUSEL ===============-->
+          <section class="carousel section" id="carousel">
+            <div class="carousel__container">
+              <h2 class="section__title">
+                <a
+                  href="./components/carousel.html"
+                  class="carousel__link link link--icon">
+                  Carousel
+                </a>
+              </h2>
+
+              <div class="carousel__menu">
+                <ul class="carousel__list list--cards">
+                  <li class="carousel__item item--card">
+                    <a
+                      href="./components/carousel.html#basic"
+                      class="carousel__link link link--button link--button--active">
+                      Basic carousel
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!--=============== TAB ===============-->
+          <section class="tab section" id="tab">
+            <div class="tab__container">
+              <h2 class="section__title">
+                <a
+                  href="./components/tab.html"
+                  class="tab__link link link--icon">
+                  Tab
+                </a>
+              </h2>
+
+              <div class="tab__menu">
+                <ul class="tab__list list--cards">
+                  <li class="tab__item item--card">
+                    <a
+                      href="./components/tab.html#basic"
+                      class="carousel__link link link--button link--button--active">
+                      Basic tab
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer" id="footer">
+      <div class="footer__container container container--grid">
+        <div class="footer__menu" id="footer-menu">
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a href="#" class="footer__link link link--button">Imprint</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link link link--button">Privacy</a>
+            </li>
+          </ul>
+        </div>
+
+        <span class="footer__copy">
+          &#169; 2023 Joshua Schärer. All rigths reserved.
+        </span>
+      </div>
+    </footer>
+  </body>
 </html>

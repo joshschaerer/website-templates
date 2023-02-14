@@ -1,0 +1,59 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --hover-overlay-color: rgba(0, 0, 0, 0.05);
+  --active-overlay-color: #e7f3ff;
+  --first-color: hsl(214, 89%, 52%);
+  --first-color-alt: hsl(214, 89%, 52%, 0.4);
+}
+
+/*=============== CAROUSEL ===============*/
+.carousel {
+  position: relative;
+}
+
+.carousel__controls {
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 10;
+}
+
+:is(.carousel__prev, .carousel__next) {
+  background-color: transparent;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+:is(.carousel__prev, .carousel__next):is(:hover, :focus) {
+  background-color: var(--hover-overlay-color);
+}
+
+.carousel__list {
+  --gap: 1rem;
+  display: flex;
+  gap: var(--gap);
+  margin-inline: 2.5rem;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel__item {
+  align-items: center;
+  aspect-ratio: 4/3;
+  background-color: var(--active-overlay-color);
+  border-radius: 0.25rem;
+  color: var(--first-color);
+  display: flex;
+  flex: 0 0 calc((100% - 2 * var(--gap)) / 3);
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.carousel__item:is(:hover, :focus),
+.carousel__item[aria-current="true"] {
+  background-color: var(--first-color-alt);
+}

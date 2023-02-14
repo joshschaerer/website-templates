@@ -1,0 +1,447 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(0, 0%, 2%);
+  --first-color-alt: hsl(0, 0%, 2%, 0.1);
+  --title-color: hsl(0, 0%, 2%);
+  --text-color: hsl(0, 0%, 2%);
+  --text-color-light: hsl(0, 0%, 38%);
+  --body-color: hsl(0, 0%, 100%);
+  --hover-overlay-color: rgba(0, 0, 0, 0.05);
+  --active-overlay-color: rgba(0, 0, 0, 0.05);
+
+  /*========== Font & Typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Varela Round", sans-serif;
+
+  --font-seize-normal: 0.938rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+
+  /*========== Z-Index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Header height + Sidebar height */
+  scroll-padding-top: calc(var(--header-height) + 115px);
+}
+
+@media screen and (min-width: 767px) {
+  html {
+    scroll-padding-top: var(--header-height);
+  }
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: var(--body-font);
+  font-size: var(--font-seize-normal);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-weight: var(--font-weight-medium);
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding-block: 1.5rem;
+}
+
+:is(.section__title, .section__subtitle, .hero__title) {
+  margin-bottom: 0.75rem;
+}
+
+.section__subtitle {
+  margin-top: 1.5rem;
+}
+
+.container {
+  --width: 980px;
+  --width-large: 1440px;
+  --padding: 1.5rem;
+  margin-inline: auto;
+  max-width: var(--width);
+  padding-inline: var(--padding);
+}
+
+.container--box {
+  --border-size: 1.75px;
+  --border-radius: 0.25rem;
+  border-radius: var(--border-radius);
+  min-height: 20rem;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.container--box::before {
+  border-left: var(--border-size) solid var(--hover-overlay-color);
+  border-top: var(--border-size) solid var(--hover-overlay-color);
+  border-top-left-radius: var(--border-radius);
+  content: "";
+  height: 20%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 40%;
+}
+
+.container--box::after {
+  border-bottom: var(--border-size) solid var(--hover-overlay-color);
+  border-bottom-right-radius: var(--border-radius);
+  border-right: var(--border-size) solid var(--hover-overlay-color);
+  bottom: 0;
+  content: "";
+  height: 20%;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  width: 40%;
+}
+
+.list--cards {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.item--card > .link {
+  align-items: center;
+  aspect-ratio: 4/3;
+  display: flex;
+}
+
+/*=============== LINKS & BUTTONS ===============*/
+.link,
+.button {
+  --link-color: var(--title-color);
+  --link-background-color: transparent;
+  background-color: var(--link-background-color);
+  color: var(--link-color);
+  cursor: pointer;
+  display: inline-block;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.link--button,
+.button {
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+.link:hover,
+.link:focus,
+.link--active,
+.button--active {
+  --link-color: var(--first-color);
+}
+
+.link--active:hover,
+.link--active:focus {
+  --link-color: var(--first-color-alt);
+}
+
+.link--button:hover,
+.link--button:focus,
+.button:hover,
+.button:focus {
+  --link-background-color: var(--hover-overlay-color);
+  --link-color: var(--title-color);
+}
+
+.link--button--active,
+.button--active {
+  --link-background-color: var(--active-overlay-color);
+  --link-color: var(--first-color);
+}
+
+.link--button--active:hover,
+.link--button--active:focus,
+.button--active:hover,
+.button--active:focus {
+  --link-background-color: var(--first-color-alt);
+  --link-color: var(--first-color);
+}
+
+.link--icon::after {
+  color: var(--text-color-light);
+  content: "#";
+  font-size: 0.8em;
+}
+
+.link--icon:hover::after,
+.link--icon:focus::after {
+  color: var(--first-color);
+}
+
+/*=============== HEADER ===============*/
+.header {
+  background-color: var(--body-color);
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: var(--z-fixed);
+}
+
+.nav {
+  align-items: center;
+  border-bottom: 1px solid var(--hover-overlay-color);
+  display: flex;
+  height: var(--header-height);
+  padding-inline: calc(var(--padding) - 0.5rem);
+}
+
+/*=============== MAIN ===============*/
+.main {
+  --sidebar-width: 220px;
+  margin-top: var(--header-height);
+}
+
+.main__container {
+  column-gap: 1.5rem;
+  display: grid;
+  grid-template-areas:
+    "sidenav"
+    "main";
+}
+
+@media screen and (min-width: 767px) {
+  .main__container {
+    grid-template-areas: "sidenav main";
+    grid-template-columns: var(--sidebar-width) 1fr;
+  }
+}
+
+/*========== Sidenbar ==========*/
+.sidebar {
+  background-color: var(--body-color);
+  grid-area: sidenav;
+  margin-inline: -1.5rem;
+  max-width: 100dvw;
+  position: sticky;
+  top: var(--header-height);
+  z-index: var(--z-tooltip);
+}
+
+.sidenav {
+  border-bottom: 1px solid var(--hover-overlay-color);
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
+  padding-inline: 1.5rem;
+  row-gap: 0.75rem;
+}
+
+.sidenav__menu {
+  margin-left: -0.5rem;
+}
+
+.sidenav__list {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+.sidenav__link {
+  width: 100%;
+}
+
+@media screen and (min-width: 767px) {
+  .sidebar {
+    position: fixed;
+    width: var(--sidebar-width);
+  }
+
+  .sidenav {
+    border-bottom: revert;
+  }
+
+  .sidenav__list {
+    flex-direction: column;
+  }
+}
+
+/*========== Content ==========*/
+.content {
+  grid-area: main;
+}
+
+/*========== Breadcrumbs ==========*/
+.breadcrumbs {
+  margin-top: 1.5rem;
+}
+
+.breadcrumbs__list {
+  display: flex;
+  flex-direction: row;
+}
+
+.breadcrumbs__list > li + li::before {
+  color: var(--text-color-light);
+  content: ">";
+  margin-inline: 0.5rem 0.25rem;
+}
+
+.breadcrumbs__link:not(:hover, :focus, .link--active) {
+  color: var(--text-color-light);
+}
+
+/*========== Accordion ==========*/
+section.accordion {
+  --active-overlay-color: hsl(346, 100%, 95%);
+  --first-color: hsl(350, 88%, 61%);
+  --first-color-alt: hsl(350, 88%, 61%, 0.4);
+}
+
+/*========== Carousel ==========*/
+section.carousel {
+  --active-overlay-color: #e7f3ff;
+  --first-color: hsl(214, 89%, 52%);
+  --first-color-alt: hsl(214, 89%, 52%, 0.4);
+}
+
+/*========== Tab ==========*/
+section.tab {
+  --active-overlay-color: hsl(131, 100%, 95%);
+  --first-color: hsl(135, 48%, 51%);
+  --first-color-alt: hsl(135, 89%, 52%, 0.4);
+}
+
+/*=============== FOOTER ===============*/
+.footer {
+  grid-area: footer;
+}
+.footer__container {
+  align-items: center;
+  border-top: 1px solid var(--hover-overlay-color);
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 1rem;
+}
+
+.footer__list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.75rem;
+}
+
+.footer__copy {
+  text-align: center;
+}
+
+@media screen and (min-width: 767px) {
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__menu {
+    grid-column: 2;
+    grid-row: 1;
+    margin-left: auto;
+  }
+
+  .footer__list {
+    column-gap: 0.75rem;
+    flex-direction: row;
+  }
+
+  .footer__copy {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: unset;
+  }
+}
+
+/*=============== PRISM CSS OVERRIDE ===============*/
+pre[class*="language-"] {
+  white-space: pre-wrap;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: unset;
+  margin: unset;
+  padding: unset;
+}
+
+div.code-toolbar > .toolbar {
+  z-index: 5;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+  background-color: var(--active-overlay-color);
+  border-radius: 0.25rem;
+  box-shadow: unset;
+  color: var(--first-color);
+  cursor: pointer;
+  display: inline-block;
+  font-size: revert;
+  padding: 0.5rem;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > span:focus,
+div.code-toolbar > .toolbar > .toolbar-item > span:hover {
+  background-color: var(--first-color-alt);
+  color: var(--first-color);
+}
