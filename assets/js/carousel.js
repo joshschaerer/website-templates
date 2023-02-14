@@ -43,14 +43,16 @@ function changeSlide(e, direction, nrOfItems) {
 
   // Check the bounds of the carousel & calculate the offset
   let offset = 0;
-  if (direction === -1 && focus / itemWidth === 0)
+  if (direction === -1 && Math.round(focus / itemWidth) === 0)
     offset = itemWidth * (nrOfItems - 3);
-  else if (direction === 1 && focus / itemWidth === nrOfItems - 3) offset = 0;
+  else if (direction === 1 && Math.round(focus / itemWidth) === nrOfItems - 3)
+    offset = 0;
   else offset = focus + direction * itemWidth;
 
   // Toggle the current selected slides
   parent.querySelectorAll("[aria-current]").forEach((slide, index) => {
-    if (index === offset / itemWidth) slide.setAttribute("aria-current", true);
+    if (index === Math.round(offset / itemWidth))
+      slide.setAttribute("aria-current", true);
     else slide.setAttribute("aria-current", false);
   });
 
