@@ -66,6 +66,12 @@
                     Looped
                   </a>
                 </li>
+
+                <li class="sidenav__item">
+                  <a href="#clickable" class="sidenav__link link link--button">
+                    Clickable
+                  </a>
+                </li>
               </ul>
             </div>
           </nav>
@@ -690,6 +696,391 @@
                   id="carousel-looped"
                   data-visible-items="3"
                   data-looped>
+                  <div class="carousel__controls" role="group">
+                    <button
+                      class="carousel__prev"
+                      id="carousel-prev"
+                      tabindex="-1">
+                      &lt;
+                    </button>
+                    <button
+                      class="carousel__next"
+                      id="carousel-next"
+                      tabindex="-1">
+                      &gt;
+                    </button>
+                  </div>
+
+                  <ul class="carousel__list" tabindex="0">
+                    <li class="carousel__item" aria-current="true">1</li>
+                    <li class="carousel__item" aria-current="false">2</li>
+                    <li class="carousel__item" aria-current="false">3</li>
+                    <li class="carousel__item" aria-current="false" hidden>
+                      4
+                    </li>
+                    <li class="carousel__item" aria-current="false" hidden>
+                      5
+                    </li>
+                    <li class="carousel__item" aria-current="false" hidden>
+                      6
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="carousel section" id="clickable">
+            <div class="carousel__container">
+              <h2 class="section__title">Clickable carousel</h2>
+              <p class="section__description">
+                A template which extends the basic carousel to make all slides
+                clickable.
+              </p>
+
+              <h3 class="section__subtitle">Code</h3>
+              <div class="section__container">
+                <div class="tab tab--basic">
+                  <div class="tab__list" role="tablist">
+                    <h3 class="tab__header">
+                      <button
+                        class="tab__title"
+                        id="tab-basic-header-html"
+                        role="tab"
+                        aria-controls="tab-basic-panel-html"
+                        aria-selected="true"
+                        tabindex="0">
+                        HTML
+                      </button>
+                    </h3>
+
+                    <h3 class="tab__header">
+                      <button
+                        class="tab__title"
+                        id="tab-basic-header-css"
+                        role="tab"
+                        aria-controls="tab-basic-panel-css"
+                        aria-selected="false"
+                        tabindex="-1">
+                        CSS
+                      </button>
+                    </h3>
+
+                    <h3 class="tab__header">
+                      <button
+                        class="tab__title"
+                        id="tab-basic-header-js"
+                        role="tab"
+                        aria-controls="tab-basic-panel-js"
+                        aria-selected="false"
+                        tabindex="-1">
+                        JS
+                      </button>
+                    </h3>
+                  </div>
+
+                  <section
+                    class="tab__panel container--box"
+                    id="tab-basic-panel-html"
+                    role="tabpanel"
+                    aria-labelledby="tab-basic-header-html"
+                    tabindex="-1">
+                    <pre>
+                        <code class="language-html">
+                          &lt;!--=============== CLICKABLE CAROUSEL ===============--&gt;
+                          &lt;div
+                            class=&quot;carousel carousel--clickable&quot;
+                            id=&quot;carousel-clickable&quot;
+                            data-visible-items=&quot;3&quot;
+                            data-clickable&gt;
+                            &lt;div class=&quot;carousel__controls&quot; role=&quot;group&quot;&gt;
+                              &lt;button class=&quot;carousel__prev&quot; id=&quot;carousel-prev&quot; tabindex=&quot;-1&quot;&gt;
+                                &amp;lt;
+                              &lt;/button&gt;
+                              &lt;button class=&quot;carousel__next&quot; id=&quot;carousel-next&quot; tabindex=&quot;-1&quot;&gt;
+                                &amp;gt;
+                              &lt;/button&gt;
+                            &lt;/div&gt;
+                          
+                            &lt;ul class=&quot;carousel__list&quot; tabindex=&quot;0&quot;&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;true&quot;&gt;1&lt;/li&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;false&quot;&gt;2&lt;/li&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;false&quot;&gt;3&lt;/li&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;false&quot; hidden&gt;4&lt;/li&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;false&quot; hidden&gt;5&lt;/li&gt;
+                              &lt;li class=&quot;carousel__item&quot; aria-current=&quot;false&quot; hidden&gt;6&lt;/li&gt;
+                            &lt;/ul&gt;
+                          &lt;/div&gt;
+                        </code>
+                    </pre>
+                  </section>
+
+                  <section
+                    class="tab__panel container--box"
+                    id="tab-basic-panel-css"
+                    role="tabpanel"
+                    aria-labelledby="tab-basic-header-css"
+                    tabindex="-1"
+                    hidden>
+                    <pre>
+                        <code class="language-css">
+                          /*=============== VARIABLES CSS ===============*/
+                          :root {
+                            --hover-overlay-color: rgba(0, 0, 0, 0.05);
+                            --active-overlay-color: #e7f3ff;
+                            --first-color: hsl(214, 89%, 52%);
+                            --first-color-alt: hsl(214, 89%, 52%, 0.4);
+                          }
+                          
+                          /*=============== CAROUSEL ===============*/
+                          /*===== GENERAL =====*/
+                          .carousel {
+                            position: relative;
+                          }
+                          
+                          .carousel__controls {
+                            display: flex;
+                            justify-content: space-between;
+                            left: 0;
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 100%;
+                            z-index: 5;
+                          }
+                          
+                          :is(.carousel__prev, .carousel__next) {
+                            background-color: transparent;
+                            border-radius: 0.25rem;
+                            padding: 0.5rem;
+                          }
+                          
+                          :is(.carousel__prev, .carousel__next):is(:hover, :focus) {
+                            background-color: var(--hover-overlay-color);
+                          }
+                          
+                          .carousel__list {
+                            --gap: 1rem;
+                            display: flex;
+                            gap: var(--gap);
+                            margin-inline: 2.5rem;
+                            overflow-x: scroll;
+                            scroll-snap-type: x mandatory;
+                          }
+                          
+                          .carousel__item {
+                            align-items: center;
+                            aspect-ratio: 4/3;
+                            background-color: var(--active-overlay-color);
+                            border-radius: 0.25rem;
+                            color: var(--first-color);
+                            display: flex;
+                            flex: 0 0 calc((100% - 2 * var(--gap)) / 3);
+                            justify-content: center;
+                            scroll-snap-align: start;
+                          }
+                          
+                          .carousel__item:is(:hover, :focus),
+                          .carousel__item[aria-current="true"] {
+                            background-color: var(--first-color-alt);
+                          }
+                          
+                          /*===== CLICKABLE =====*/
+                          [data-clickable] .carousel__item {
+                            cursor: pointer;
+                          }                                                  
+                        </code>
+                    </pre>
+                  </section>
+
+                  <section
+                    class="tab__panel container--box"
+                    id="tab-basic-panel-js"
+                    role="tabpanel"
+                    aria-labelledby="tab-basic-header-js"
+                    tabindex="-1"
+                    hidden>
+                    <pre>
+                        <code class="language-js">
+                          /*=============== CAROUSEL ===============*/
+                          const carousels = document.querySelectorAll(".carousel");
+
+                          // Setup each carousel
+                          carousels.forEach((carousel) => {
+                            /*===== GENERAL =====*/
+                            const carList = carousel.querySelector(".carousel__list");
+                            let carItems = carousel.querySelectorAll(".carousel__item");
+                            const carPrev = carousel.querySelector("#carousel-prev");
+                            const carNext = carousel.querySelector("#carousel-next");
+                            let nrOfItems = carItems.length;
+
+                            // Additional specifications for the carousel
+                            const nrOfVisibleItems = carousel.getAttribute("data-visible-items");
+                            const isLooped = carousel.hasAttribute("data-looped");
+                            const isClickable = carousel.hasAttribute("data-clickable");
+
+                            // Add a keydown event handler to the carousel
+                            carousel.addEventListener("keydown", (e) => {
+                              if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+                                // Move right
+                                if (e.key === "ArrowRight") {
+                                  e.preventDefault();
+                                  changeSlide(carList, 1, nrOfItems, nrOfVisibleItems, isLooped);
+                                  // Move left
+                                } else if (e.key === "ArrowLeft") {
+                                  e.preventDefault();
+                                  changeSlide(carList, -1, nrOfItems, nrOfVisibleItems, isLooped);
+                                }
+                              }
+                            });
+
+                            // Add a click event handler to the previous button
+                            carPrev.addEventListener("click", (e) =>
+                              changeSlide(carList, -1, nrOfItems, nrOfVisibleItems, isLooped)
+                            );
+
+                            // Add a click event handler to the next button
+                            carNext.addEventListener("click", (e) =>
+                              changeSlide(carList, 1, nrOfItems, nrOfVisibleItems, isLooped)
+                            );
+
+                            /*===== LOOPED =====*/
+                            // Clone the first and last items if the carousel is looped
+                            if (isLooped) {
+                              const firstItem = carItems[0].cloneNode(true);
+                              const secondItem = carItems[1].cloneNode(true);
+                              const secondToLastItem = carItems[nrOfItems - 2].cloneNode(true);
+                              const lastItem = carItems[nrOfItems - 1].cloneNode(true);
+
+                              // Insert the clones in the DOM
+                              carList.insertBefore(secondToLastItem, carItems[0]);
+                              carList.insertBefore(lastItem, carItems[0]);
+                              carList.appendChild(firstItem);
+                              carList.appendChild(secondItem);
+
+                              // Update the number of items
+                              carItems = carousel.querySelectorAll(".carousel__item");
+                              nrOfItems = carItems.length;
+
+                              // Manually set the anchor scroll position, since we are messing with the DOM
+                              if (window.location.hash) {
+                                // Get the ID of the anchor from the URL
+                                const anchorId = window.location.hash.substring(1);
+
+                                // Find the corresponding element on the page
+                                const anchorElement = document.getElementById(anchorId);
+
+                                // If the element exists, scroll to it
+                                if (anchorElement) {
+                                  anchorElement.scrollIntoView();
+                                }
+                              }
+                            }
+
+                            /*===== CLICKABLE =====*/
+                            // Add a click event handler to each item if the carousel is clickable
+                            if (isClickable) {
+                              carItems.forEach((item) => {
+                                item.addEventListener("click", (e) => {
+                                  // Get the index of the clicked item
+                                  const itemIndex = Array.from(carItems).indexOf(e.target);
+
+                                  // Get the index of the current item
+                                  const carIndex = Math.round(
+                                    carList.scrollLeft /
+                                      ((carList.clientWidth - 32) / nrOfVisibleItems + 16)
+                                  );
+
+                                  // Calculate the direction
+                                  const direction = itemIndex - carIndex;
+
+                                  // Change the slide
+                                  changeSlide(carList, direction, nrOfItems, nrOfVisibleItems, isLooped);
+                                });
+                              });
+                            }
+                          });
+
+                          function changeSlide(parent, direction, nrOfItems, nrOfVisibleItems, isLooped) {
+                            // Get the current focus of the carousel
+                            let focus = parent.scrollLeft;
+
+                            // Get the width of a carousel item
+                            const itemWidth = (parent.clientWidth - 32) / nrOfVisibleItems + 16;
+
+                            // Get the current index of the carousel
+                            const carIndex = Math.round(focus / itemWidth);
+
+                            // Check the bounds of the carousel & calculate the offset
+                            let offset = 0;
+                            let behavior = "smooth";
+
+                            // Reached left bound
+                            if (direction <= 0 && carIndex === 0) {
+                              // Calculate the offset
+                              offset = itemWidth * (nrOfItems - nrOfVisibleItems);
+                              // If the carousel is looped, set the offset to the last non-copied item
+                              if (isLooped) {
+                                offset =
+                                  itemWidth * (nrOfItems - (nrOfVisibleItems - 1) - nrOfVisibleItems);
+                                behavior = "instant";
+                              }
+                            }
+                            // Reached right bound
+                            else if (direction >= 0 && carIndex === nrOfItems - nrOfVisibleItems) {
+                              // Set the offset to the first item
+                              offset = 0;
+                              // If the carousel is looped, set the offset to the first non-copied item
+                              if (isLooped) {
+                                offset = itemWidth * (nrOfVisibleItems - 1);
+                                behavior = "instant";
+                              }
+                            }
+                            // Anywhere in between
+                            else {
+                              // Calculate the offset
+                              offset = focus + direction * itemWidth;
+                            }
+
+                            // Get the new index of the carousel
+                            const carNewIndex = Math.round(offset / itemWidth);
+
+                            // Handle accessibility
+                            parent.querySelectorAll("[aria-current]").forEach((slide, index) => {
+                              // Toggle the current selected slides
+                              if (index === carNewIndex) slide.setAttribute("aria-current", true);
+                              else slide.setAttribute("aria-current", false);
+
+                              // Toggle the hidden state of the slides
+                              if (
+                                index === carNewIndex ||
+                                index === carNewIndex + 1 ||
+                                index === carNewIndex + 2
+                              )
+                                slide.removeAttribute("hidden");
+                              else slide.setAttribute("hidden", "");
+                            });
+
+                            // Scroll the carousel
+                            parent.scrollTo({
+                              left: offset,
+                              behavior: behavior,
+                            });
+                          }         
+                        </code>
+                    </pre>
+                  </section>
+                </div>
+              </div>
+
+              <h3 class="section__subtitle">Output</h3>
+              <div class="section__container container--box">
+                <!--=============== CLICKABLE CAROUSEL ===============-->
+                <div
+                  class="carousel carousel--clickable"
+                  id="carousel-clickable"
+                  data-visible-items="3"
+                  data-clickable>
                   <div class="carousel__controls" role="group">
                     <button
                       class="carousel__prev"

@@ -4,6 +4,7 @@ const carousels = document.querySelectorAll(".carousel");
 // Setup each carousel
 carousels.forEach((carousel) => {
   /*===== GENERAL =====*/
+  const carList = carousel.querySelector(".carousel__list");
   let carItems = carousel.querySelectorAll(".carousel__item");
   const carPrev = carousel.querySelector("#carousel-prev");
   const carNext = carousel.querySelector("#carousel-next");
@@ -12,6 +13,7 @@ carousels.forEach((carousel) => {
   // Additional specifications for the carousel
   const nrOfVisibleItems = carousel.getAttribute("data-visible-items");
   const isLooped = carousel.hasAttribute("data-looped");
+  const isClickable = carousel.hasAttribute("data-clickable");
 
   // Add a keydown event handler to the carousel
   carousel.addEventListener("keydown", (e) => {
@@ -19,23 +21,23 @@ carousels.forEach((carousel) => {
       // Move right
       if (e.key === "ArrowRight") {
         e.preventDefault();
-        changeSlide(e, 1, nrOfItems, nrOfVisibleItems, isLooped);
+        changeSlide(carList, 1, nrOfItems, nrOfVisibleItems, isLooped);
         // Move left
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
-        changeSlide(e, -1, nrOfItems, nrOfVisibleItems, isLooped);
+        changeSlide(carList, -1, nrOfItems, nrOfVisibleItems, isLooped);
       }
     }
   });
 
   // Add a click event handler to the previous button
   carPrev.addEventListener("click", (e) =>
-    changeSlide(e, -1, nrOfItems, nrOfVisibleItems, isLooped)
+    changeSlide(carList, -1, nrOfItems, nrOfVisibleItems, isLooped)
   );
 
   // Add a click event handler to the next button
   carNext.addEventListener("click", (e) =>
-    changeSlide(e, 1, nrOfItems, nrOfVisibleItems, isLooped)
+    changeSlide(carList, 1, nrOfItems, nrOfVisibleItems, isLooped)
   );
 
   /*===== LOOPED =====*/
@@ -47,7 +49,6 @@ carousels.forEach((carousel) => {
     const lastItem = carItems[nrOfItems - 1].cloneNode(true);
 
     // Insert the clones in the DOM
-    const carList = carousel.querySelector(".carousel__list");
     carList.insertBefore(secondToLastItem, carItems[0]);
     carList.insertBefore(lastItem, carItems[0]);
     carList.appendChild(firstItem);
@@ -56,14 +57,47 @@ carousels.forEach((carousel) => {
     // Update the number of items
     carItems = carousel.querySelectorAll(".carousel__item");
     nrOfItems = carItems.length;
+
+    // Manually set the anchor scroll position, since we are messing with the DOM
+    if (window.location.hash) {
+      // Get the ID of the anchor from the URL
+      const anchorId = window.location.hash.substring(1);
+
+      // Find the corresponding element on the page
+      const anchorElement = document.getElementById(anchorId);
+
+      // If the element exists, scroll to it
+      if (anchorElement) {
+        anchorElement.scrollIntoView();
+      }
+    }
+  }
+
+  /*===== CLICKABLE =====*/
+  // Add a click event handler to each item if the carousel is clickable
+  if (isClickable) {
+    carItems.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        // Get the index of the clicked item
+        const itemIndex = Array.from(carItems).indexOf(e.target);
+
+        // Get the index of the current item
+        const carIndex = Math.round(
+          carList.scrollLeft /
+            ((carList.clientWidth - 32) / nrOfVisibleItems + 16)
+        );
+
+        // Calculate the direction
+        const direction = itemIndex - carIndex;
+
+        // Change the slide
+        changeSlide(carList, direction, nrOfItems, nrOfVisibleItems, isLooped);
+      });
+    });
   }
 });
 
-function changeSlide(e, direction, nrOfItems, nrOfVisibleItems, isLooped) {
-  const target = e.target;
-  const parent =
-    e instanceof KeyboardEvent ? target : target.parentNode.nextElementSibling;
-
+function changeSlide(parent, direction, nrOfItems, nrOfVisibleItems, isLooped) {
   // Get the current focus of the carousel
   let focus = parent.scrollLeft;
 
@@ -78,7 +112,7 @@ function changeSlide(e, direction, nrOfItems, nrOfVisibleItems, isLooped) {
   let behavior = "smooth";
 
   // Reached left bound
-  if (direction === -1 && carIndex === 0) {
+  if (direction <= 0 && carIndex === 0) {
     // Calculate the offset
     offset = itemWidth * (nrOfItems - nrOfVisibleItems);
     // If the carousel is looped, set the offset to the last non-copied item
@@ -89,7 +123,7 @@ function changeSlide(e, direction, nrOfItems, nrOfVisibleItems, isLooped) {
     }
   }
   // Reached right bound
-  else if (direction === 1 && carIndex === nrOfItems - nrOfVisibleItems) {
+  else if (direction >= 0 && carIndex === nrOfItems - nrOfVisibleItems) {
     // Set the offset to the first item
     offset = 0;
     // If the carousel is looped, set the offset to the first non-copied item
