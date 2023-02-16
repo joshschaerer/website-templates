@@ -109,7 +109,7 @@ function changeSlide(parent, direction, nrOfItems, nrOfVisibleItems, isLooped) {
 
   // Check the bounds of the carousel & calculate the offset
   let offset = 0;
-  let behavior = "smooth";
+  let reset = false;
 
   // Reached left bound
   if (direction <= 0 && carIndex === 0) {
@@ -119,7 +119,7 @@ function changeSlide(parent, direction, nrOfItems, nrOfVisibleItems, isLooped) {
     if (isLooped) {
       offset =
         itemWidth * (nrOfItems - (nrOfVisibleItems - 1) - nrOfVisibleItems);
-      behavior = "instant";
+      reset = true;
     }
   }
   // Reached right bound
@@ -129,7 +129,7 @@ function changeSlide(parent, direction, nrOfItems, nrOfVisibleItems, isLooped) {
     // If the carousel is looped, set the offset to the first non-copied item
     if (isLooped) {
       offset = itemWidth * (nrOfVisibleItems - 1);
-      behavior = "instant";
+      reset = true;
     }
   }
   // Anywhere in between
@@ -157,9 +157,16 @@ function changeSlide(parent, direction, nrOfItems, nrOfVisibleItems, isLooped) {
     else slide.setAttribute("hidden", "");
   });
 
+  // Reset the scroll position if the carousel is looped
+  if (isLooped && reset) {
+    if (direction < 0) {
+      parent.scrollLeft = itemWidth * (nrOfItems - nrOfVisibleItems - 1);
+    } else if (direction > 0) parent.scrollLeft = itemWidth;
+  }
+
   // Scroll the carousel
   parent.scrollTo({
     left: offset,
-    behavior: behavior,
+    behavior: "smooth",
   });
 }
