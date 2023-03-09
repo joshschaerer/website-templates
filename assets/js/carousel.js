@@ -48,6 +48,12 @@ carousels.forEach((carousel) => {
     const secondToLastItem = carItems[nrOfItems - 2].cloneNode(true);
     const lastItem = carItems[nrOfItems - 1].cloneNode(true);
 
+    // Modify the clones
+    firstItem.hidden = true;
+    secondItem.hidden = true;
+    secondToLastItem.hidden = true;
+    lastItem.hidden = true;
+
     // Insert the clones in the DOM
     carList.insertBefore(secondToLastItem, carItems[0]);
     carList.insertBefore(lastItem, carItems[0]);
